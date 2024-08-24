@@ -1,0 +1,33 @@
+{
+  "name": "nodecachetask",
+  "version": "1.0.0",
+  "description": "simple node js task which handles the caching",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --detectOpenHandles"
+  },
+  "jest": {
+    "testTimeout": 20000,
+    "transform": {}
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.7.4",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "node-cache": "^5.1.2",
+    "nodemon": "^3.1.4",
+    "redis": "^4.7.0",
+    "redis-mock": "^0.56.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.3",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}
