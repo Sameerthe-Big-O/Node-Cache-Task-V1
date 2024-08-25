@@ -11,6 +11,7 @@
   "jest": {
     "testTimeout": 20000,
     "transform": {}
+
   },
   "author": "",
   "license": "MIT",
@@ -20,8 +21,7 @@
     "express": "^4.19.2",
     "node-cache": "^5.1.2",
     "nodemon": "^3.1.4",
-    "redis": "^4.7.0",
-    "redis-mock": "^0.56.3"
+    "redis": "^4.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

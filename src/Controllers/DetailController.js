@@ -5,6 +5,7 @@ let redisClient = await getRedisClient();
 
 async function getDetails(req, res, next) {
   //*i'm assuming that frontend react will allow to have a filter options
+  console.log("yoo");
   const { country, year } = req.query;
   try {
     //*check for the input
@@ -23,12 +24,14 @@ async function getDetails(req, res, next) {
 
     const cachedResults = await redisClient.get(cacheKey);
 
+    console.log("asd", cachedResults);
     if (cachedResults) {
       isCached = true;
       results = JSON.parse(cachedResults);
     } else {
       results = await fetchApiData(country, Number(year));
-      if (!results || results.response.length === 0) {
+      console.log(results);
+      if (!results || results.response.holidays.length === 0) {
         throw new ApiError(404, `Not found: Invalid Country Code :${country}`);
       }
 
@@ -40,7 +43,7 @@ async function getDetails(req, res, next) {
       );
     }
 
-    res.send({
+    return res.send({
       fromCache: isCached,
       data: results.response.holidays,
     });
